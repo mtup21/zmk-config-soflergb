@@ -72,6 +72,16 @@
             bindings = <&kp RIGHT_BRACE>;
             key-positions = <38 39>;
         };
+
+        copy {
+            bindings = <&copy>;
+            key-positions = <15 16>;
+        };
+
+        paste {
+            bindings = <&paste>;
+            key-positions = <28 27>;
+        };
     };
 
     macros {
@@ -94,6 +104,20 @@
             #binding-cells = <0>;
             bindings = <&none &kp LBRC &kp C &kp O &kp D &kp E &kp RBRC &kp RET &kp RET &kp LBRC &kp C &kp O &kp D &kp E &kp RBRC &kp UP>;
             label = "CODE_BLOCK";
+        };
+
+        copy: copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(C)>;
+            label = "COPY";
+        };
+
+        paste: paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(V)>;
+            label = "PASTE";
         };
     };
 
