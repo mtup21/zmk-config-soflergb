@@ -18,64 +18,7 @@
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
 
-    combos {
-        compatible = "zmk,combos";
-
-        instance {
-            bindings = <&instance>;
-            key-positions = <12 13>;
-        };
-
-        pattern {
-            bindings = <&pattern>;
-            key-positions = <24 25>;
-        };
-
-        code_block {
-            bindings = <&code_block>;
-            key-positions = <36 37>;
-        };
-
-        left_para {
-            bindings = <&kp LPAR>;
-            key-positions = <13 14>;
-        };
-
-        right_para {
-            bindings = <&kp RPAR>;
-            key-positions = <14 15>;
-        };
-
-        left_bracket {
-            bindings = <&kp LEFT_BRACKET>;
-            key-positions = <25 26>;
-        };
-
-        right_bracket {
-            bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <26 27>;
-        };
-
-        left_brace {
-            bindings = <&kp LEFT_BRACE>;
-            key-positions = <38 37>;
-        };
-
-        right_brace {
-            bindings = <&kp RIGHT_BRACE>;
-            key-positions = <38 39>;
-        };
-
-        copy {
-            bindings = <&copy>;
-            key-positions = <15 16>;
-        };
-
-        paste {
-            bindings = <&paste>;
-            key-positions = <28 27>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     macros {
         code_block: code_block {
