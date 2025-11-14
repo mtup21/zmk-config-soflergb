@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define BASE 0
@@ -77,20 +78,6 @@
     };
 
     macros {
-        instance: instance {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none &kp I &kp N &kp S &kp T &kp A &kp N &kp C &kp E &kp EQUAL>;
-            label = "INSTANCE";
-        };
-
-        pattern: pattern {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none &kp P &kp A &kp T &kp T &kp E &kp R &kp N &kp EQUAL>;
-            label = "PATTERN";
-        };
-
         code_block: code_block {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -110,6 +97,13 @@
             #binding-cells = <0>;
             bindings = <&kp LG(V)>;
             label = "PASTE";
+        };
+
+        find: find {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(F)>;
+            label = "FIND";
         };
     };
 
@@ -139,31 +133,31 @@
 
         layer_1 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans     &trans  &trans  &trans  &trans    &trans                          &trans    &trans    &trans  &trans     &trans  &trans
+&kp TAB    &kp N1  &kp N2  &kp N3  &kp N4    &kp N5                          &kp N6    &kp N7    &kp N8  &kp N9     &kp N0  &kp BSPC
+&trans     &trans  &trans  &trans  &trans    &trans                          &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
+&kp LSHFT  &trans  &trans  &trans  &trans    &trans  &trans       &trans     &trans    &trans    &trans  &trans     &trans  &trans
+                   &trans  &trans  &kp LGUI  &trans  &kp ENTER    &kp SPACE  &trans    &trans    &trans  &trans
             >;
         };
 
         layer_2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans     &trans           &trans       &trans     &trans        &trans                             &trans     &trans     &trans            &trans                &trans                 &trans
+&kp TAB    &kp EXCLAMATION  &kp AT_SIGN  &kp POUND  &kp DOLLAR    &kp PERCENT                        &kp CARET  &kp AMPS   &kp KP_MULTIPLY   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BACKSPACE
+&kp CARET  &trans           &trans       &trans     &trans        &trans                             &kp MINUS  &kp EQUAL  &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp NON_US_BACKSLASH   &kp GRAVE
+&kp LSHFT  &trans           &trans       &trans     &trans        &trans       &trans     &trans     &kp UNDER  &kp PLUS   &kp LEFT_BRACE    &kp RIGHT_BRACE       &kp PIPE               &kp TILDE
+                            &trans       &trans     &kp LEFT_GUI  &trans       &kp RET    &kp SPACE  &trans     &kp RALT   &trans            &trans
             >;
         };
 
         layer_3 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans            &trans  &trans    &trans    &trans     &trans                         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans  &trans  &bt BT_CLR
+&kp LC(RET)       &trans  &paste    &kp UP    &copy      &trans                         &trans        &trans        &trans        &trans  &trans  &trans
+&kp LC(LEFT_ALT)  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans                         &trans        &trans        &trans        &trans  &trans  &trans
+&trans            &trans  &trans    &trans    &find      &code_block  &trans    &trans  &trans        &trans        &trans        &trans  &trans  &bt BT_CLR_ALL
+                          &trans    &trans    &trans     &trans       &trans    &trans  &trans        &trans        &trans        &trans
             >;
         };
     };
