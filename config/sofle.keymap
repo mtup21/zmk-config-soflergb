@@ -31,14 +31,14 @@
         copy: copy {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LG(C)>;
+            bindings = <&kp LC(C)>;
             label = "COPY";
         };
 
         paste: paste {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LG(V)>;
+            bindings = <&kp LC(V)>;
             label = "PASTE";
         };
 
